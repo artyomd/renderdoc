@@ -49,7 +49,7 @@ RDOC_DEBUG_CONFIG(bool, Vulkan_Debug_SingleSubmitFlushing, false,
 uint64_t VkInitParams::GetSerialiseSize()
 {
   // misc bytes and fixed integer members
-  size_t ret = 128;
+  size_t ret = 160;
 
   ret += AppName.size() + EngineName.size();
 
@@ -99,6 +99,8 @@ void VkInitParams::Set(const VkInstanceCreateInfo *pCreateInfo, ResourceId inst)
 
   for(uint32_t i = 0; i < pCreateInfo->enabledExtensionCount; i++)
     Extensions[i] = pCreateInfo->ppEnabledExtensionNames[i];
+
+  flags = pCreateInfo->flags;
 
   InstanceID = inst;
 }
@@ -1633,6 +1635,10 @@ static const VkExtensionProperties supportedExtensions[] = {
     {
         VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME,
         VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION,
+    },
+    {
+        VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME,
+        VK_KHR_PORTABILITY_ENUMERATION_SPEC_VERSION,
     },
     {
         VK_KHR_PRESENT_ID_EXTENSION_NAME,
