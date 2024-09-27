@@ -421,7 +421,7 @@ RDResult WrappedVulkan::Initialise(VkInitParams &params, uint64_t sectionVersion
   VkInstanceCreateInfo instinfo = {
       VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
       instNext,
-      0,
+      params.flags,
       &renderdocAppInfo,
       (uint32_t)params.Layers.size(),
       layerscstr,

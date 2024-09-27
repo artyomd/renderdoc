@@ -44,7 +44,7 @@ struct VkInitParams
   void Set(const VkInstanceCreateInfo *pCreateInfo, ResourceId inst);
 
   rdcstr AppName, EngineName;
-  uint32_t AppVersion = 0, EngineVersion = 0;
+  uint32_t AppVersion = 0, EngineVersion = 0, flags = 0;
   VkPackedVersion APIVersion;
 
   rdcarray<rdcstr> Layers;

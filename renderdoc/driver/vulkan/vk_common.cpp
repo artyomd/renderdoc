@@ -942,6 +942,7 @@ void DoSerialise(SerialiserType &ser, VkInitParams &el)
   SERIALISE_MEMBER(EngineName);
   SERIALISE_MEMBER(AppVersion);
   SERIALISE_MEMBER(EngineVersion);
+  SERIALISE_MEMBER(flags);
   SERIALISE_MEMBER(APIVersion).TypedAs("uint32_t"_lit);
   SERIALISE_MEMBER(Layers);
   SERIALISE_MEMBER(Extensions).Important();
